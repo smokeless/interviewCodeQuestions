@@ -72,6 +72,20 @@ def testperms():
         pass
 
 
+class Rotation(object):
+
+    def is_substring(self, s1, s2):
+        return s1 in s2
+
+    def is_rotation(self, s1, s2):
+        if s1 is None or s2 is None:
+            return False
+        if len(s1) != len(s2):
+            return False
+        return self.is_substring(s1, s2 + s2 ) #Add them together and the first string appears.
+
+
 if __name__ == '__main__':
-    testperms()
+    x = Rotation()
+    print(x.is_rotation('abc', 'cabcab'))
     pass
